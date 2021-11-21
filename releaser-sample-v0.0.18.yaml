@@ -1,0 +1,25 @@
+apiVersion: devops.kubesphere.io/v1alpha1
+kind: Releaser
+metadata:
+  labels:
+    app.kubernetes.io/instance: bot
+  name: releaser-sample-v0.0.18
+  namespace: default
+spec:
+  gitOps:
+    enable: true
+    repository:
+      address: https://github.com/abdelouahabmbarki-bot/test-ks-releaser
+      branch: main
+      name: test
+  repositories:
+  - action: release
+    address: https://github.com/abdelouahabmbarki-bot/test-ks-releaser
+    branch: main
+    name: test
+    provider: github
+    version: v0.0.18
+  secret:
+    name: test-git
+    namespace: default
+  version: v0.0.18
